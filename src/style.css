@@ -1,11 +1,5 @@
-
-.hello {
-  color: red;
-  font-family: 'STIX Two Math', serif;
-}
-
-.delete-todo svg {
-  width: 30px;
-  height: 30px;
-  pointer-events: none;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
