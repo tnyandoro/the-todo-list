@@ -5,4 +5,10 @@ const todoList = document.querySelector('.todo-list');
 
 // Events Listeners 
 
+todoButton.addEventListener('click',addTodo);
+
 // Functions 
+
+function addTodo(event) {
+  
+}
