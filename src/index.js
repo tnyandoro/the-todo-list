@@ -3,73 +3,94 @@
 // The array that holds the listed items
 let todoItems = [];
 
-function addTodo(item) {
+function addTodo(text) {
   const todo = {
-    item,
+    text,
     checked: false,
     id: Date.now(),
   };
+
   todoItems.push(todo);
   renderTodo(todo);
 }
 
 function toggleDone(key) {
-  // lets find Index is an array method that will return the position of an array item in the array
   const index = todoItems.findIndex(item => item.id === Number(key));
-  // Lets locate the todo item in the todoitems array and set its checked property to the opposite of
-  // meaning true will bcome false and rVksvsnNCdJ
   todoItems[index].checked = !todoItems[index].checked;
   renderTodo(todoItems[index]);
-
 }
-// lets get the form element
-const form = document.querySelector('.todo-form');
-// Lets add an event listener to submit the form
-form.addEventListener('submit', event => {
-  // stop the page from refreshing on submit
-  event.preventDefault();
-  // pick the form input element
-  const input = document.querySelector('.todo-input');
 
-  // Lets get the input values
-  const item = input.value.trim();
-  if (item !== '') {
-    addTodo(item);
+function deleteTodo(key) {
+  // lets find the corrosponding todo object in the  todoItems array 
+
+  const index = todoItems.findIndex(item => item.id === Number(key));
+  // Lets create a new object with properties of the current todo item and/
+  // a deleted property now set to true.
+  const todo = {
+    deleted: true,
+    ...todoItemss[index]
+  };
+  // remove the todo items from the array by filtering it out of
+  todoItems = todoItems.filter(item => item.id !== Number(key));
+  renderTodo(todo);
+}
+
+
+// lets get the form element
+const form = document.querySelector('.js-form');
+form.addEventListener('submit', event => {
+  event.preventDefault();
+  const input = document.querySelector('.js-todo-input');
+
+  const text = input.value.trim();
+  if (text !== '') {
+    addTodo(text);
     input.value = '';
+    input.focus();
   }
 });
 
-function renderTodo(todo) {
-  // Lets get 1st element with a class of lodo
-  const list = document.querySelector('.todo-list')
 
-  // Using the ternary operator to if 'todo.checked' is
-  // then assign done else empty
+function renderTodo(todo) {
+  const list = document.querySelector('.js-todo-list');
+  const item = document.querySelector(`[data-key='${todo.id}']`);
+
+  if (todo.deleted) {
+    // remove the from the Dom element
+    item.remove();
+    return
+  }
+
   const isChecked = todo.checked ? 'done' : '';
-  // Create an `li` element and assign it to `node`
   const node = document.createElement("li");
-  // Set the class attribute
   node.setAttribute('class', `todo-item ${isChecked}`);
-  // Set the data-key attribute to the id of the todo
   node.setAttribute('data-key', todo.id);
-  // Set the contents of the `li` element created above
   node.innerHTML = `
-    <input id="${todo.id}" type="checkbox" form-check-input/>
-    <label for="${todo.id}" class="tick form-check-labe"></label>
+    <input id="${todo.id}" type="checkbox"/>
+    <label for="${todo.id}" class="tick js-tick"></label>
     <span>${todo.text}</span>
-    <button class="button ">
+    <button class="delete-todo js-delete-todo">
     <svg><use href="#delete-icon"></use></svg>
     </button>
   `;
 
-  // Lets Append the element to the Dom of the last child to the element by the list variable 
-  list.append(node);
+  if (item) {
+    list.replaceChild(node, item);
+  } else {
+    list.append(node);
+  }
 }
-const list = document.querySelector('.todo-list');
-// Adding a click event listener to the list and its children will
+
+const list = document.querySelector('.js-todo-list');
 list.addEventListener('click', event => {
-  if (event.target.classList.contains('tick')) {
+  if (event.target.classList.contains('js-tick')) {
     const itemKey = event.target.parentElement.dataset.key;
     toggleDone(itemKey);
   }
-})
+
+  // add this `if` block
+  if (event.target.classList.contains('js-delete-todo')) {
+    const itemKey = event.target.parentElement.dataset.key;
+    deleteTodo(itemKey);
+  }
+});
