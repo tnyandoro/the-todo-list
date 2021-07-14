@@ -23,21 +23,37 @@
   </header>
   <main>
     <div class="container">
-      <h4 class="title">Todays todos list</h4>
-      <form>
-        <input type="text" class="todo-input">
-        <button class="todo-button" type="submit">
-          <i class="fas fa-plus-square"></i>
-        </button>
-      </form>
-      <div class="todo-container">
-        <ul class="class-list">
-          <div class="todo-list">
-            <li><input type="checkbox"></li>
-            <button>Delete</button>
-            <button>Checked</button>
+      <div class="row">
+        <div class="col mx-auto col-md-8 mt-3 text-center">
+          <div class="alert text-capitalize feedback">
+            Today's Todo Lis
           </div>
-        </ul>
+          <!-- form -->
+          <form id="itemForm" class="my-3">
+            <div class="input-group">
+              <input type="text" class="form-control text-capitalize" id="itemInput" placeholder="name...">
+              <div class="input-group-append">
+                <button class="btn btn-green text-capitalize" type="submit">add item</button>
+              </div>
+            </div>
+          </form>
+          <div class="item-container">
+            <!-- end of form  -->
+            <div class="item-list my-5">
+              <!-- single item -->
+              <!-- <div class="item my-3">
+      <h5 class="item-name text-capitalize">laundry</h5>
+      <div class="item-icons">
+       <a href="#" class="complete-item mx-2 item-icon"><i class="far fa-check-circle"></i></a>
+       <a href="#" class="edit-item mx-2 item-icon"><i class="far fa-edit"></i></a>
+       <a href="#" class="delete-item item-icon"><i class="far fa-times-circle"></i></a>
+      </div>
+     </div> -->
+              <!-- end of single item -->
+            </div>
+            <button type="button" class="btn btn-green my-3 text-capitalize" id="clear-list">clear items</button>
+          </div>
+        </div>
       </div>
     </div>
   </main>
