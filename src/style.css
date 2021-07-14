@@ -1,98 +1,88 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+:root {
+  --mainWhite: #f5f5f5;
+  --mainGreen: #000;
+  --mainBlack: #333;
+  --mainRed: #d62828;
+  --mainBlue: #11b5e4;
 }
 
 body {
-  background-image: linear-gradient(120deg, #8e84e9, #3924f1);
-  color: #fff;
-  font-family: 'Lato', sans-serif;
-  min-height: 100vh;
+  background: var(--mainWhite);
+  color: #333;
 }
 
-header {
-  font-size: 1.5rem;
-}
-
-header,
-form,
-.title {
-  min-height: 20vh;
-  display: flex;
-  justify-content: center;
+.hold {
+  border: 1px solid;
+  margin: 0 auto;
+  width: 60%;
   align-items: center;
+  border-radius: 3px;
+  box-shadow: 5px 10px #333;
 }
 
-form input,
-form button {
-  padding: 0.5rem;
-  font-size: 2rem;
-  border: none;
-  background: #fff;
+.btn-green {
+  border-color: var(--mainGreen);
+  background: transparent;
+  color: var(--mainGreen);
 }
 
-form button {
-  color: #3924f1;
-  background: #fff;
-  cursor: pointer;
-  transition: all 0.3s ease;
+.btn-green:hover {
+  background: var(--mainGreen);
+  color: var(--mainBlack);
 }
 
-form button:hover {
-  background: #3924f1;
-  color: #fff;
+.form-control {
+  border-color: var(--mainGreen) !important;
 }
 
-.todo-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.todo-list {
-  min-width: 30%;
-  list-style: none;
-}
-
-.todo {
-  margin: 0.5rem;
-  background: #fff;
+.feedback {
+  display: none;
   color: #000;
-  font-size: 1.5rem;
+}
+
+.item {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  transition: all 1s ease;
 }
 
-.todo li {
-  flex: 1;
-}
-
-.trash-btn,
-.complete-btn {
-  background: #ed2c0c;
-  color: #fff;
-  border: none;
-  padding: 1rem;
+.item-icon {
+  font-size: 1.2rem;
   cursor: pointer;
 }
 
-.complete-btn {
-  background: #1ad720;
+.complete-item {
+  color: var(--mainGreen);
 }
 
-.todo-item {
-  padding: 0rem 1rem;
+.complete-item:hover {
+  color: var(--mainGreen);
 }
 
-.fa-trash,
-.facheck {
-  pointer-events: none;
+.edit-item {
+  color: var(--mainBlue);
+}
+
+.edit-item:hover {
+  color: var(--mainBlue);
+}
+
+.delete-item {
+  color: var(--mainRed);
+}
+
+.delete-item:hover {
+  color: var(--mainRed);
 }
 
 .completed {
   text-decoration: line-through;
   opacity: 0.5;
+}
+
+.visibility {
+  opacity: 0.5;
+}
+
+.showItem {
+  display: block;
 }

@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,49 +11,41 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <link rel="stylesheet" href="./style.css">
+  <!-- <link rel="stylesheet" href="./style.css"> -->
 </head>
 
-<body>
-  <header>
-    <h1>The todo List</h1>
-  </header>
-  <main>
-    <div class="container">
-      <div class="row">
-        <div class="col mx-auto col-md-8 mt-3 text-center">
-          <div class="alert text-capitalize feedback">
-            Today's Todo Lis
-          </div>
-          <!-- form -->
-          <form id="itemForm" class="my-3">
-            <div class="input-group">
-              <input type="text" class="form-control text-capitalize" id="itemInput" placeholder="name...">
-              <div class="input-group-append">
-                <button class="btn btn-green text-capitalize" type="submit">add item</button>
-              </div>
+<header>
+  <h3>The todo List</h3>
+</header>
+<main>
+  <div class="container hold">
+    <h3 class="text-center">Today todo List</h3>
+    <div class="row">
+      <div class="col mx-auto col-md-8 mt-3 text-center">
+        <div class="alert text-capitalize feedback">
+          Todays Todo List
+        </div>
+        <!-- form -->
+        <form id="itemForm" class="my-3">
+          <div class="input-group">
+            <input type="text" class="form-control text-capitalize" id="itemInput" placeholder="Add to your list...">
+            <div class="input-group-append">
+              <button class="btn btn-green text-capitalize" type="submit">add item</button>
             </div>
-          </form>
-          <div class="item-container">
-            <!-- end of form  -->
-            <div class="item-list my-5">
-              <!-- single item -->
-              <!-- <div class="item my-3">
-      <h5 class="item-name text-capitalize">laundry</h5>
-      <div class="item-icons">
-       <a href="#" class="complete-item mx-2 item-icon"><i class="far fa-check-circle"></i></a>
-       <a href="#" class="edit-item mx-2 item-icon"><i class="far fa-edit"></i></a>
-       <a href="#" class="delete-item item-icon"><i class="far fa-times-circle"></i></a>
-      </div>
-     </div> -->
-              <!-- end of single item -->
-            </div>
-            <button type="button" class="btn btn-green my-3 text-capitalize" id="clear-list">clear items</button>
           </div>
+        </form>
+        <div class="item-container">
+          <!-- end of form  -->
+          <div class="item-list my-5">
+
+          </div>
+          <button type="button" class="btn btn-green my-3 text-capitalize" id="clear-list">clear all
+            completed</button>
         </div>
       </div>
     </div>
-  </main>
+  </div>
+</main>
 </body>
 <script src="./index.js"></script>
 
