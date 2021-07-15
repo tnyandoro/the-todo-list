@@ -30,6 +30,11 @@ var removeItem = function removeItem(item) {
 };
 
 var addTodo = function addTodo(itemName) {
+  todoItems.push({
+    text: itemName,
+    checked: false,
+    id: Date.now()
+  });
   items.forEach(function (item) {
     if (item.querySelector('.item-name').textContent === itemName) {
       // event listener for complete
