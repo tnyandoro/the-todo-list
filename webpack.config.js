@@ -22,10 +22,7 @@ module.exports = {
     clean: true,
   },
   module: {
-    rules: [{
-      test: /\.html$/i,
-      loader: 'html-loader',
-    },
+    rules: [
     {
       test: /\.m?js$/,
       exclude: /(node_modules|bower_components)/,
