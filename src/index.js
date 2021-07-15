@@ -1,6 +1,6 @@
 /* eslint-disable func-names */
-import css from "./style.css";
-import html from './index.html';
+// import css from "./style.css";
+// import html from './index.html';
 // declarations
 const form = document.querySelector('#itemForm'); // select the form
 const itemInput = document.querySelector('#itemInput'); // select the input box from the form
@@ -38,6 +38,11 @@ const removeItem = function (item) {
 };
 
 const addTodo = function (itemName) {
+  todoItems.push({
+    text: itemName,
+    checked: false,
+    id: Date.now(),
+  });
   items.forEach((item) => {
     if (item.querySelector('.item-name').textContent === itemName) {
       // event listener for complete

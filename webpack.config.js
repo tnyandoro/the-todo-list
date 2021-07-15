@@ -1,28 +1,35 @@
 const path = require('path');
-
+const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const options = {}
 
 module.exports = {
   mode: 'development',
   entry: {
     index: './src/index.js',
-    // print: './src/print.js',
   },
   devtool: 'inline-source-map',
   devServer: {
     contentBase: './dist',
   },
-  plugins: [
+   plugins: [
     new HtmlWebpackPlugin({
-      title: 'The Todo List ',
+      template: './src/index.html',
     }),
+    new WebpackManifestPlugin(options),
   ],
   output: {
-    filename: 'bundle.js',
+    filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
+    chunkFilename: '[id].[chunkhash].js',
     clean: true,
   },
   module: {
     rules: [
+      {
+        test: /\.html$/i,
+        loader: 'html-loader',
+      },
     {
       test: /\.m?js$/,
       exclude: /(node_modules|bower_components)/,
