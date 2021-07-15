@@ -1,7 +1,8 @@
 const path = require('path');
 const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const options = {}
+
+const options = {};
 
 module.exports = {
   mode: 'development',
@@ -12,7 +13,7 @@ module.exports = {
   devServer: {
     contentBase: './dist',
   },
-   plugins: [
+  plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
     }),
@@ -30,25 +31,25 @@ module.exports = {
         test: /\.html$/i,
         loader: 'html-loader',
       },
-    {
-      test: /\.m?js$/,
-      exclude: /(node_modules|bower_components)/,
-      use: {
-        loader: 'babel-loader',
-        options: {
-          presets: ['@babel/preset-env'],
-          plugins: ['@babel/plugin-proposal-object-rest-spread'],
+      {
+        test: /\.m?js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env'],
+            plugins: ['@babel/plugin-proposal-object-rest-spread'],
+          },
         },
       },
-    },
-    {
-      test: /\.css$/i,
-      use: ['style-loader', 'css-loader'],
-    },
-    {
-      test: /\.(png|svg|jpg|jpeg|gif)$/i,
-      type: 'asset/resource',
-    },
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
+      },
     ],
   },
 };
