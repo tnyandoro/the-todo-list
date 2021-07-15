@@ -1,5 +1,6 @@
 /* eslint-disable func-names */
-// import css from "./style.css";
+import css from "./style.css";
+import html from './index.html';
 // declarations
 const form = document.querySelector('#itemForm'); // select the form
 const itemInput = document.querySelector('#itemInput'); // select the input box from the form

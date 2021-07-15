@@ -1,5 +1,5 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 
 module.exports = {
   mode: 'development',
@@ -23,6 +23,10 @@ module.exports = {
   },
   module: {
     rules: [{
+      test: /\.html$/i,
+      loader: 'html-loader',
+    },
+    {
       test: /\.m?js$/,
       exclude: /(node_modules|bower_components)/,
       use: {
