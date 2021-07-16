@@ -32,13 +32,13 @@ const saveAndRender = function () {
   });
 };
 
-const completeItem = function (itemId) {
+const completeItem = (itemId) => {
   const todoItem = todoItems.find((tdi) => tdi.id === itemId);
   todoItem.checked = !todoItem.checked;
   saveAndRender();
 };
 
-const removeItem = function (itemId) {
+const removeItem = (itemId) => {
   const todoItem = todoItems.find((tdi) => tdi.id === itemId);
   const removeIndex = (todoItems.indexOf(todoItem));
   todoItems.splice(removeIndex, 1);
