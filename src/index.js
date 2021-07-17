@@ -1,18 +1,21 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable func-names */
-import { css } from './style.css';
-import { html } from './index.html';
+import css from './style.css';
+import html from './index.html';
 import ItemRepository from './ItemRepository.js';
+import ItemSorter from './ItemSorter.js';
 
 // declarations and
 let currentEditItem = null;
-const itemRepository = new ItemRepository();
 const form = document.querySelector('#itemForm'); // select the form
 const itemInput = document.querySelector('#itemInput'); // select the input box from the form
 const itemList = document.querySelector('.item-list');
 const inform = document.querySelector('.inform');
 const clearButton = document.querySelector('#clear-list');
 const submitButton = document.querySelector('#submitButton');
+
+const itemRepository = new ItemRepository();
+const itemSorter = new ItemSorter(itemList, itemRepository);
 
 const renderItems = function () {
   // clear items HTML
@@ -33,9 +36,9 @@ const renderItems = function () {
       </div>`,
     );
     const element = document.getElementById(todoItem.id);
-    element.addEventListener('dragstart', itemDragStart);
-    element.addEventListener('dragover', itemDragOver);
-    element.addEventListener('dragend', itemDragEnd);
+    element.addEventListener('dragstart', itemSorter.itemDragStart);
+    element.addEventListener('dragover', itemSorter.itemDragOver);
+    element.addEventListener('dragend', itemSorter.itemDragEnd);
   });
 };
 
