@@ -2,9 +2,11 @@
 /* eslint-disable func-names */
 import { css } from './style.css';
 import { html } from './index.html';
+import ItemRepository from './ItemRepository.js';
 
 // declarations and
 let currentEditItem = null;
+const itemRepository = new ItemRepository();
 const form = document.querySelector('#itemForm'); // select the form
 const itemInput = document.querySelector('#itemInput'); // select the input box from the form
 const itemList = document.querySelector('.item-list');
@@ -12,19 +14,12 @@ const inform = document.querySelector('.inform');
 const clearButton = document.querySelector('#clear-list');
 const submitButton = document.querySelector('#submitButton');
 
-//-----------------------------------------------------------------------------------
-
-
-//-----------------------------------------------------------------------------------
-
-//-----------------------------------------------------------------------------------
-
 const renderItems = function () {
   // clear items HTML
   itemList.innerHTML = '';
 
   // generate items HTML
-  todoItems.forEach((todoItem) => {
+  itemRepository.getItems().forEach((todoItem) => {
     const completed = todoItem.completed ? 'completed' : '';
     itemList.insertAdjacentHTML(
       'beforeend',
@@ -63,12 +58,12 @@ form.addEventListener('submit', (e) => {
 
   // add/edit
   if (currentEditItem) {
-    updateItem(currentEditItem.id, itemText);
+    itemRepository.updateItem(currentEditItem.id, itemText);
     currentEditItem = null;
     submitButton.innerText = 'Add';
     renderItems();
   } else {
-    addItem(itemText);
+    itemRepository.addItem(itemText);
     renderItems();
   }
 
@@ -79,7 +74,7 @@ form.addEventListener('submit', (e) => {
 // event handler to clear items
 clearButton.addEventListener('click', (e) => {
   e.preventDefault();
-  removeCompletedItems();
+  itemRepository.removeCompletedItems();
   renderItems();
 });
 
@@ -93,19 +88,17 @@ itemList.addEventListener('click', (e) => {
 
   // complete/edit/delete
   if (targetClasses.contains('complete-item')) {
-    completeItem(getItemId());
+    itemRepository.completeItem(getItemId());
     renderItems();
   } else if (targetClasses.contains('edit-item')) {
-    currentEditItem = getItem(getItemId());
+    currentEditItem = itemRepository.getItem(getItemId());
     itemInput.value = currentEditItem.text;
     submitButton.innerText = 'Edit';
     renderItems();
   } else if (targetClasses.contains('delete-item')) {
-    removeItem(getItemId());
+    itemRepository.removeItem(getItemId());
     renderItems();
   }
 });
-
-// itemList.addEventListener('dragover', (e) => e.preventDefault());
 
 renderItems();

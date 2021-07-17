@@ -1,8 +1,7 @@
-const todoItems = [];
-
-class Itemrepository {
+export default class ItemRepository {
   constructor() {
     this.todoItems = [];
+    this.loadItems();
   }
 
   storeItems() {
@@ -10,12 +9,16 @@ class Itemrepository {
   }
 
   loadItems() {
-    this.todoItems = JSON.parse(localStorage.getItem('this.todoItems') || '[]');
+    this.todoItems = JSON.parse(localStorage.getItem('todoItems') || '[]');
   }
 
   getItem(itemId) {
-    todoItem = this.todoItems.find((tdi) => tdi.id === itemId);
+    const todoItem = this.todoItems.find((tdi) => tdi.id === itemId);
     return todoItem;
+  }
+
+  getItems() {
+    return this.todoItems;
   }
 
   addItem(itemText) {
@@ -25,33 +28,31 @@ class Itemrepository {
       text: itemText,
       completed: false,
     });
-    storeItems();
+    this.storeItems();
   }
 
   completeItem(itemId) {
-    const todoItem = getItem(itemId);
+    const todoItem = this.getItem(itemId);
     todoItem.completed = !todoItem.completed;
-    storeItems();
+    this.storeItems();
   }
 
   removeItem(itemId) {
-    const todoItem = getItem(itemId);
+    const todoItem = this.getItem(itemId);
     const removeIndex = (this.todoItems.indexOf(todoItem));
     this.todoItems.splice(removeIndex, 1);
-    storeItems();
+    this.storeItems();
   }
 
   removeCompletedItems() {
     this.todoItems = this.todoItems.filter((tdi) => !tdi.completed);
-    storeItems();
+    this.storeItems();
+  }
+
+  updateItem(itemId, itemText) {
+    const todoItem = this.getItem(itemId);
+    todoItem.text = itemText;
+    localStorage.setItem('todoItems', JSON.stringify(this.todoItems));
+    this.storeItems();
   }
 }
-
-const updateItem = function (itemId, itemText) {
-  const todoItem = getItem(itemId);
-  todoItem.text = itemText;
-  localStorage.setItem('todoItems', JSON.stringify(todoItems));
-  storeItems();
-};
-
-loadItems();

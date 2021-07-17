@@ -1,24 +1,26 @@
-
-
-let itemBeingDragged = null;
-let draggingPointer = null;
-
-const itemDragStart = (e) => {
-  console.log('itemDragStart');
-
-  if (!e.target.classList.contains('item')) {
-    return;
+class ItemSorter {
+  constructor() {
+    this.itemBeingDragged = null;
+    this.draggingPointer = null;
   }
 
-  itemBeingDragged = e.target;
-  itemBeingDragged.classList.add('dragging');
+  itemDragStart() {
+    console.log('itemDragStart');
 
-  draggingPointer = document.createElement('hr');
-  draggingPointer.classList.add('dragging-pointer');
+    if (!e.target.classList.contains('item')) {
+      return;
+    }
 
-  itemList.appendChild(draggingPointer);
-  draggingPointer.before(itemBeingDragged);
-};
+    this.itemBeingDragged = e.target;
+    this.itemBeingDragged.classList.add('dragging');
+
+    this.draggingPointer = document.createElement('hr');
+    this.draggingPointer.classList.add('dragging-pointer');
+
+    itemList.appendChild(this.draggingPointer);
+    this.draggingPointer.before(this.itemBeingDragged);
+  }
+}
 
 const itemDragOver = (e) => {
   e.preventDefault();
