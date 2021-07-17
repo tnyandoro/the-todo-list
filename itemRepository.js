@@ -1,4 +1,4 @@
-let todoItems = [];
+const todoItems = [];
 
 class Itemrepository {
   constructor() {
@@ -27,25 +27,25 @@ class Itemrepository {
     });
     storeItems();
   }
+
+  completeItem(itemId) {
+    const todoItem = getItem(itemId);
+    todoItem.completed = !todoItem.completed;
+    storeItems();
+  }
+
+  removeItem(itemId) {
+    const todoItem = getItem(itemId);
+    const removeIndex = (this.todoItems.indexOf(todoItem));
+    this.todoItems.splice(removeIndex, 1);
+    storeItems();
+  }
+
+  removeCompletedItems() {
+    this.todoItems = this.todoItems.filter((tdi) => !tdi.completed);
+    storeItems();
+  }
 }
-
- completeItem (itemId) {
-  const todoItem = getItem(itemId);
-  todoItem.completed = !todoItem.completed;
-  storeItems();
-};
-
-const removeItem = function (itemId) {
-  const todoItem = getItem(itemId);
-  const removeIndex = (todoItems.indexOf(todoItem));
-  todoItems.splice(removeIndex, 1);
-  storeItems();
-};
-
-const removeCompletedItems = function () {
-  todoItems = todoItems.filter((tdi) => !tdi.completed);
-  storeItems();
-};
 
 const updateItem = function (itemId, itemText) {
   const todoItem = getItem(itemId);
