@@ -43,6 +43,19 @@ body {
 .item {
   display: flex;
   justify-content: space-between;
+  cursor: move;
+  border: 1px solid gray;
+  margin: 0;
+  padding: 0;
+}
+
+.item.dragging {
+  opacity: 0.5;
+}
+
+.dragging-pointer {
+  height: 1px;
+  border: 1px dashed gray;
 }
 
 .item-icon {

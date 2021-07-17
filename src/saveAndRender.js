@@ -1,23 +1,4 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable func-names */
-import { css } from './style.css';
-import { html } from './index.html';
-
-// declarations and
-let currentEditItem = null;
-const form = document.querySelector('#itemForm'); // select the form
-const itemInput = document.querySelector('#itemInput'); // select the input box from the form
 const itemList = document.querySelector('.item-list');
-const inform = document.querySelector('.inform');
-const clearButton = document.querySelector('#clear-list');
-const submitButton = document.querySelector('#submitButton');
-
-//-----------------------------------------------------------------------------------
-
-
-//-----------------------------------------------------------------------------------
-
-//-----------------------------------------------------------------------------------
 
 const renderItems = function () {
   // clear items HTML
@@ -108,4 +89,4 @@ itemList.addEventListener('click', (e) => {
 
 // itemList.addEventListener('dragover', (e) => e.preventDefault());
 
-renderItems();
+export default renderItems();
