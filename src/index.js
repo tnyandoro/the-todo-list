@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable func-names */
 // eslint-disable-next-line no-unused-vars
-// import css from './style.css';
-// import html from './index.html';
+import css from './style.css';
+import html from './index.html';
 // declarations
 const form = document.querySelector('#itemForm'); // select the form
 const itemInput = document.querySelector('#itemInput'); // select the input box from the form
