@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable func-names */
 // eslint-disable-next-line no-unused-vars
-import css from './style.css';
-import html from './index.html';
+// import css from './style.css';
+// import html from './index.html';
 // declarations
 const form = document.querySelector('#itemForm'); // select the form
 const itemInput = document.querySelector('#itemInput'); // select the input box from the form
@@ -10,43 +10,39 @@ const itemList = document.querySelector('.item-list');
 const inform = document.querySelector('.inform');
 const clearButton = document.querySelector('#clear-list');
 
-let todoItems = [];
+let tasks = [];
 
 const items = document.querySelectorAll('.item-list');
 
-const getList = function (todoItems) {
+const renderTasks = function () {
   itemList.innerHTML = '';
 
-  todoItems.forEach((item) => {
-    itemList.insertAdjacentHTML('beforeend',
+  tasks.forEach((task) => {
+    itemList.insertAdjacentHTML(
+      'beforeend',
       `<div class="item my-3">
-  <h5 class="item-name text-capitalize">${item}</h5>
-  <div class="item-icons"><a href="#" class="complete-item mx-2 item-icon">
-  <i class="far fa-check-circle"></i></a><a href="#" class="edit-item mx-2 item-icon">
-  <i class="far fa-edit"></i></a><a href="#" class="delete-item item-icon">
-  <i class="far fa-times-circle"></i></a></div></div>`);
-
-    // eslint-disable-next-line no-use-before-define
-    addTodo(item);
+        <div class="item-icons">
+          <a href="#" class="complete-item mx-2 item-icon">
+            <i class="far fa-check-square"></i>
+          </a>
+        </div>
+        <h5 class="item-name text-capitalize">${task.description}</h5>       
+      </div>`,
+    );
   });
 };
 
 const removeItem = function (item) {
   // console.log(item);
-  const removeIndex = (todoItems.indexOf(item));
+  const removeIndex = (tasks.indexOf(item));
   // console.log(removeIndex);
-  todoItems.splice(removeIndex, 1);
-  getList(todoItems);
+  tasks.splice(removeIndex, 1);
+  renderTasks();
 };
 
-const addTodo = function (itemName) {
-  todoItems.push({
-    text: itemName,
-    checked: false,
-    id: Date.now(),
-  });
+const addTodo = function (itemDescription) {
   items.forEach((item) => {
-    if (item.querySelector('.item-name').textContent === itemName) {
+    if (item.querySelector('.item-name').textContent === itemDescription) {
       // event listener for complete
       item.querySelector('.complete-item').addEventListener('click', function () {
         item.querySelector('.item-name').classList.toggle('completed');
@@ -54,18 +50,18 @@ const addTodo = function (itemName) {
       });
       // event listener for for edit
       item.querySelector('.edit-item').addEventListener('click', () => {
-        itemInput.value = itemName;
+        itemInput.value = itemDescription;
         itemList.removeChild(item);
 
-        todoItems = todoItems.filter((item) => item !== itemName);
+        tasks = tasks.filter((item) => item !== itemDescription);
       });
       // event listener for delete
       item.querySelector('.delete-item').addEventListener('click', () => {
         // itemList.removeChild(item);
 
-        const dataItem = todoItems.find((item) => item === itemName);
+        const dataItem = tasks.find((item) => item === itemDescription);
         removeItem(dataItem);
-        getList(todoItems);
+        renderTasks();
         // showinform('item delete', 'success')
       });
     }
@@ -74,18 +70,18 @@ const addTodo = function (itemName) {
 
 // get local storage
 const getLocalStorage = function () {
-  const todoStorage = localStorage.getItem('todoItems');
-  if (todoStorage === 'undefined' || todoStorage === null) {
-    todoItems = [];
+  const storedTasksStr = localStorage.getItem('tasks');
+  if (storedTasksStr === 'undefined' || storedTasksStr === null) {
+    tasks = [];
   } else {
-    todoItems = JSON.parse(todoStorage);
-    getList(todoItems);
+    tasks = JSON.parse(storedTasksStr);
+    renderTasks();
   }
 };
 
 // set local storage
-const setLocalStorage = function (todoItems) {
-  localStorage.setItem('todoItems', JSON.stringify(todoItems));
+const setLocalStorage = function () {
+  localStorage.setItem('tasks', JSON.stringify(tasks));
 };
 
 // get local storage
@@ -94,20 +90,24 @@ getLocalStorage();
 // add a list item and to local storage
 form.addEventListener('submit', (e) => {
   e.preventDefault();
-  const itemName = itemInput.value;
+  const itemDescription = itemInput.value;
 
-  if (itemName === 0) {
+  if (itemDescription === 0) {
     inform.innerHTML = 'Enter a Valid to do';
     inform.classList.add('showItem', 'alert-danger');
     setTimeout(() => {
       inform.classList.remove('showItem');
     }, 3000);
   } else {
-    todoItems.push(itemName);
-    setLocalStorage(todoItems);
-    getList(todoItems);
+    tasks.push({
+      description: itemDescription,
+      completed: false,
+      index: tasks.length,
+    });
+    setLocalStorage();
+    renderTasks();
     // add event listeners to icons;
-    // addtodo(itemName);
+    // addtodo(itemDescription);
   }
 
   itemInput.value = '';
@@ -116,7 +116,7 @@ form.addEventListener('submit', (e) => {
 // clear items from the listeners
 
 clearButton.addEventListener('click', () => {
-  todoItems = [];
+  tasks = [];
   localStorage.clear();
-  getList(todoItems);
+  renderTasks();
 });

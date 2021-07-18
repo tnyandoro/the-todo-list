@@ -1,5 +1,8 @@
+/* eslint-disable no-unused-vars */
+
 /* eslint-disable func-names */
-import css from "./style.css";
+// eslint-disable-next-line no-unused-vars
+import css from './style.css';
 import html from './index.html'; // declarations
 
 var form = document.querySelector('#itemForm'); // select the form
@@ -30,11 +33,11 @@ var removeItem = function removeItem(item) {
 };
 
 var addTodo = function addTodo(itemName) {
-  todoItems.push({
-    text: itemName,
-    checked: false,
-    id: Date.now()
-  });
+  // todoItems.push({
+  //   text: itemName,
+  //   checked: false,
+  //   id: Date.now(),
+  // });
   items.forEach(function (item) {
     if (item.querySelector('.item-name').textContent === itemName) {
       // event listener for complete
