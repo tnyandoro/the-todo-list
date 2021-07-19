@@ -15,6 +15,11 @@ body {
   color: #e6efef;
 }
 
+.heading {
+  color:#000;
+  font-size: 18px;
+}
+
 .hold {
   border: 1px solid;
   margin: 0 auto;
@@ -42,6 +47,11 @@ body {
 .feedback {
   display: none;
   color: #000;
+}
+
+.item-name {
+  margin-left: 0;
+  align-content: flex-start;
 }
 
 .item {
