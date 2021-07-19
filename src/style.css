@@ -18,6 +18,8 @@ body {
 .heading {
   color: #000;
   font-size: 18px;
+  padding-top: 30px;
+  font-style: italic;
 }
 
 .hold {

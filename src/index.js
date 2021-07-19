@@ -1,7 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable func-names */
-import css from './style.css';
-import html from './index.html';
 import ItemRepository from './ItemRepository.js';
 import ItemSorter from './ItemSorter.js';
 
@@ -17,7 +13,7 @@ const submitButton = document.querySelector('#submitButton');
 const itemRepository = new ItemRepository();
 const itemSorter = new ItemSorter(itemList, itemRepository);
 
-const renderItems = function () {
+const renderItems = () => {
   // clear items HTML
   itemList.innerHTML = '';
 
