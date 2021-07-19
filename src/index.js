@@ -27,12 +27,12 @@ const renderItems = function () {
     itemList.insertAdjacentHTML(
       'beforeend',
       `<div class="item"  id="${todoItem.id}" draggable="true">
-        <h5 class="item-name text-capitalize ${completed}">${todoItem.text}</h5>
-        <div class="item-icons">
-          <i class="far fa-check-circle complete-item item-icon"></i>
+      <div class="item-icons">
+          <i class="far fa-check-square complete-item item-icon"></i>
           <i class="far fa-edit edit-item item-icon"></i>
           <i class="far fa-times-circle delete-item item-icon"></i>
         </div>
+        <h5 class="item-name text-capitalize ${completed}">${todoItem.text}</h5>        
       </div>`,
     );
     const element = document.getElementById(todoItem.id);
