@@ -1,5 +1,8 @@
+/* eslint-disable no-unused-vars */
+
 /* eslint-disable func-names */
-import css from "./style.css";
+// eslint-disable-next-line no-unused-vars
+import css from './style.css';
 import html from './index.html'; // declarations
 
 var form = document.querySelector('#itemForm'); // select the form
@@ -9,34 +12,27 @@ var itemInput = document.querySelector('#itemInput'); // select the input box fr
 var itemList = document.querySelector('.item-list');
 var inform = document.querySelector('.inform');
 var clearButton = document.querySelector('#clear-list');
-var todoItems = [];
+var tasks = [];
 var items = document.querySelectorAll('.item-list');
 
-var getList = function getList(todoItems) {
+var renderTasks = function renderTasks() {
   itemList.innerHTML = '';
-  todoItems.forEach(function (item) {
-    itemList.insertAdjacentHTML('beforeend', "<div class=\"item my-3\">\n  <h5 class=\"item-name text-capitalize\">".concat(item, "</h5>\n  <div class=\"item-icons\"><a href=\"#\" class=\"complete-item mx-2 item-icon\">\n  <i class=\"far fa-check-circle\"></i></a><a href=\"#\" class=\"edit-item mx-2 item-icon\">\n  <i class=\"far fa-edit\"></i></a><a href=\"#\" class=\"delete-item item-icon\">\n  <i class=\"far fa-times-circle\"></i></a></div></div>")); // eslint-disable-next-line no-use-before-define
-
-    addTodo(item);
+  tasks.forEach(function (task) {
+    itemList.insertAdjacentHTML('beforeend', "<div class=\"item my-3\">\n        <div class=\"item-icons\">\n          <a href=\"#\" class=\"complete-item mx-2 item-icon\">\n            <i class=\"far fa-check-square\"></i>\n          </a>\n        </div>\n        <h5 class=\"item-name text-capitalize\">".concat(task.description, "</h5>       \n      </div>"));
   });
 };
 
 var removeItem = function removeItem(item) {
   // console.log(item);
-  var removeIndex = todoItems.indexOf(item); // console.log(removeIndex);
+  var removeIndex = tasks.indexOf(item); // console.log(removeIndex);
 
-  todoItems.splice(removeIndex, 1);
-  getList(todoItems);
+  tasks.splice(removeIndex, 1);
+  renderTasks();
 };
 
-var addTodo = function addTodo(itemName) {
-  todoItems.push({
-    text: itemName,
-    checked: false,
-    id: Date.now()
-  });
+var addTodo = function addTodo(itemDescription) {
   items.forEach(function (item) {
-    if (item.querySelector('.item-name').textContent === itemName) {
+    if (item.querySelector('.item-name').textContent === itemDescription) {
       // event listener for complete
       item.querySelector('.complete-item').addEventListener('click', function () {
         item.querySelector('.item-name').classList.toggle('completed');
@@ -44,20 +40,20 @@ var addTodo = function addTodo(itemName) {
       }); // event listener for for edit
 
       item.querySelector('.edit-item').addEventListener('click', function () {
-        itemInput.value = itemName;
+        itemInput.value = itemDescription;
         itemList.removeChild(item);
-        todoItems = todoItems.filter(function (item) {
-          return item !== itemName;
+        tasks = tasks.filter(function (item) {
+          return item !== itemDescription;
         });
       }); // event listener for delete
 
       item.querySelector('.delete-item').addEventListener('click', function () {
         // itemList.removeChild(item);
-        var dataItem = todoItems.find(function (item) {
-          return item === itemName;
+        var dataItem = tasks.find(function (item) {
+          return item === itemDescription;
         });
         removeItem(dataItem);
-        getList(todoItems); // showinform('item delete', 'success')
+        renderTasks(); // showinform('item delete', 'success')
       });
     }
   });
@@ -65,19 +61,19 @@ var addTodo = function addTodo(itemName) {
 
 
 var getLocalStorage = function getLocalStorage() {
-  var todoStorage = localStorage.getItem('todoItems');
+  var storedTasksStr = localStorage.getItem('tasks');
 
-  if (todoStorage === 'undefined' || todoStorage === null) {
-    todoItems = [];
+  if (storedTasksStr === 'undefined' || storedTasksStr === null) {
+    tasks = [];
   } else {
-    todoItems = JSON.parse(todoStorage);
-    getList(todoItems);
+    tasks = JSON.parse(storedTasksStr);
+    renderTasks();
   }
 }; // set local storage
 
 
-var setLocalStorage = function setLocalStorage(todoItems) {
-  localStorage.setItem('todoItems', JSON.stringify(todoItems));
+var setLocalStorage = function setLocalStorage() {
+  localStorage.setItem('tasks', JSON.stringify(tasks));
 }; // get local storage
 
 
@@ -85,26 +81,30 @@ getLocalStorage(); // add a list item and to local storage
 
 form.addEventListener('submit', function (e) {
   e.preventDefault();
-  var itemName = itemInput.value;
+  var itemDescription = itemInput.value;
 
-  if (itemName === 0) {
+  if (itemDescription === 0) {
     inform.innerHTML = 'Enter a Valid to do';
     inform.classList.add('showItem', 'alert-danger');
     setTimeout(function () {
       inform.classList.remove('showItem');
     }, 3000);
   } else {
-    todoItems.push(itemName);
-    setLocalStorage(todoItems);
-    getList(todoItems); // add event listeners to icons;
-    // addtodo(itemName);
+    tasks.push({
+      description: itemDescription,
+      completed: false,
+      index: tasks.length
+    });
+    setLocalStorage();
+    renderTasks(); // add event listeners to icons;
+    // addtodo(itemDescription);
   }
 
   itemInput.value = '';
 }); // clear items from the listeners
 
 clearButton.addEventListener('click', function () {
-  todoItems = [];
+  tasks = [];
   localStorage.clear();
-  getList(todoItems);
+  renderTasks();
 });

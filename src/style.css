@@ -1,6 +1,6 @@
 :root {
   --mainWhite: #f5f5f5;
-  --mainGreen: #000;
+  --mainGrey: #000;
   --mainBlack: #333;
   --mainRed: #d62828;
   --mainBlue: #11b5e4;
@@ -9,6 +9,10 @@
 body {
   background: var(--mainWhite);
   color: #333;
+}
+
+.head {
+  color: #ecfcfc;
 }
 
 .hold {
@@ -20,24 +24,31 @@ body {
   box-shadow: 5px 10px #333;
 }
 
-.btn-green {
-  border-color: var(--mainGreen);
+.btn-grey {
+  border-color: var(--mainGrey);
   background: transparent;
-  color: var(--mainGreen);
+  color: var(--mainGrey);
 }
 
-.btn-green:hover {
-  background: var(--mainGreen);
+.btn-grey:hover {
+  background: var(--mainGrey);
   color: var(--mainBlack);
 }
 
 .form-control {
-  border-color: var(--mainGreen) !important;
+  border-color: var(--mainGrey) !important;
 }
 
 .feedback {
   display: none;
   color: #000;
+}
+
+.title {
+  font-size: 18px;
+  padding-top: 10px;
+  font-style: italic;
+  font-weight: 200;
 }
 
 .item {
@@ -51,11 +62,11 @@ body {
 }
 
 .complete-item {
-  color: var(--mainGreen);
+  color: var(--mainGrey);
 }
 
 .complete-item:hover {
-  color: var(--mainGreen);
+  color: var(--mainGrey);
 }
 
 .edit-item {
