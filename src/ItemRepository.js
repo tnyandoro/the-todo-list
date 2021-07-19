@@ -52,7 +52,14 @@ export default class ItemRepository {
   updateItem(itemId, itemText) {
     const todoItem = this.getItem(itemId);
     todoItem.text = itemText;
-    localStorage.setItem('todoItems', JSON.stringify(this.todoItems));
+    this.storeItems();
+  }
+
+  moveItem(itemId, toIndex) {
+    const todoItem = this.getItem(itemId);
+    const fromIndex = this.todoItems.indexOf(todoItem); // find current index
+    this.todoItems.splice(fromIndex, 1); // remove from current index
+    this.todoItems.splice(toIndex, 0, todoItem); // add to new index
     this.storeItems();
   }
 }

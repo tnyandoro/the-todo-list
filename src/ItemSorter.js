@@ -34,7 +34,7 @@ export default class ItemSorter {
     const mouseVerticalPosition = e.clientY;
     const itemBeingDraggedOverRectangle = itemBeingDraggedOver.getBoundingClientRect();
     const itemBeingDraggedOverVerticalCenter = itemBeingDraggedOverRectangle.top
-                                            + (itemBeingDraggedOverRectangle.height / 2);
+                                              + (itemBeingDraggedOverRectangle.height / 2);
 
     if (mouseVerticalPosition <= itemBeingDraggedOverVerticalCenter) {
       this.itemBeingDragged.before(itemBeingDraggedOver);
@@ -48,6 +48,9 @@ export default class ItemSorter {
     if (!this.itemBeingDragged) {
       return;
     }
+
+    const newIndex = Array.prototype.indexOf.call(this.itemList.children, this.itemBeingDragged);
+    this.itemRepository.moveItem(this.itemBeingDragged.id, newIndex);
 
     this.itemBeingDragged.classList.remove('dragging');
     this.itemBeingDragged = null;

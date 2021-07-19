@@ -26,7 +26,7 @@ const renderItems = function () {
     const completed = todoItem.completed ? 'completed' : '';
     itemList.insertAdjacentHTML(
       'beforeend',
-      `<div class="item my-3"  id="${todoItem.id}" draggable="true">
+      `<div class="item"  id="${todoItem.id}" draggable="true">
         <h5 class="item-name text-capitalize ${completed}">${todoItem.text}</h5>
         <div class="item-icons">
           <i class="far fa-check-circle complete-item item-icon"></i>
@@ -36,9 +36,9 @@ const renderItems = function () {
       </div>`,
     );
     const element = document.getElementById(todoItem.id);
-    element.addEventListener('dragstart', itemSorter.itemDragStart);
-    element.addEventListener('dragover', itemSorter.itemDragOver);
-    element.addEventListener('dragend', itemSorter.itemDragEnd);
+    element.addEventListener('dragstart', (e) => itemSorter.itemDragStart(e));
+    element.addEventListener('dragover', (e) => itemSorter.itemDragOver(e));
+    element.addEventListener('dragend', (e) => itemSorter.itemDragEnd(e));
   });
 };
 

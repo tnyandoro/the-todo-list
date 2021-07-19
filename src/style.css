@@ -11,6 +11,10 @@ body {
   color: #333;
 }
 
+.title {
+  color: #e6efef;
+}
+
 .hold {
   border: 1px solid;
   margin: 0 auto;
@@ -20,13 +24,13 @@ body {
   box-shadow: 5px 10px #333;
 }
 
-.btn-green {
+.btn-grey {
   border-color: var(--mainGreen);
   background: transparent;
   color: var(--mainGreen);
 }
 
-.btn-green:hover {
+.btn-grey:hover {
   background: var(--mainGreen);
   color: var(--mainBlack);
 }
@@ -43,11 +47,23 @@ body {
 .item {
   display: flex;
   justify-content: space-between;
-  cursor: move;
+  cursor: grab;
+  margin: 0;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.item h5 {
+  margin: 0;
 }
 
 .item.dragging {
   opacity: 0.5;
+  background-color: yellowgreen;
+}
+
+.item.dragover {
+  background-color: #11b5e4;
 }
 
 .dragging-pointer {
