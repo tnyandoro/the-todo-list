@@ -31,7 +31,8 @@ const renderItems = () => {
           <i class="far fa-edit edit-item item-icon"></i>
           <i class="far fa-times-circle delete-item item-icon"></i>
         </div>
-        <h5 class="item-name text-capitalize ${completed}">${todoItem.text}</h5>        
+        <h5 class="item-name text-capitalize ${completed}">${todoItem.text}</h5>   
+        <i class="fas fa-ellipsis-v"></i>     
       </div>`,
     );
     const element = document.getElementById(todoItem.id);
