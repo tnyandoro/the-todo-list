@@ -70,7 +70,7 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- Bootsrap
+- Font Awesome
 - This project was inspired by the [Microverse](https://www.microverse.org/) for the  program
 
 
