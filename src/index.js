@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import css from './style.css';
 import html from './index.html';
 import ItemRepository from './ItemRepository.js';
