@@ -1,3 +1,5 @@
+import css from './style.css';
+import html from './index.html';
 import ItemRepository from './ItemRepository.js';
 import ItemSorter from './ItemSorter.js';
 
