@@ -67,7 +67,9 @@ body {
 
 .item h5 {
   margin: 0;
-  border-bottom: 1px solid;
+  width: 70%;
+  text-align: left;
+  text-decoration: none;
 }
 
 .item.dragging {
