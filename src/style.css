@@ -11,8 +11,15 @@ body {
   color: #333;
 }
 
-.head {
-  color: #ecfcfc;
+.title {
+  color: #e6efef;
+}
+
+.heading {
+  color: #000;
+  font-size: 18px;
+  padding-top: 30px;
+  font-style: italic;
 }
 
 .hold {
@@ -44,16 +51,36 @@ body {
   color: #000;
 }
 
-.title {
-  font-size: 18px;
-  padding-top: 10px;
-  font-style: italic;
-  font-weight: 200;
+.item-name {
+  margin-left: 0;
+  align-content: flex-start;
 }
 
 .item {
   display: flex;
   justify-content: space-between;
+  cursor: grab;
+  margin: 0;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.item h5 {
+  margin: 0;
+}
+
+.item.dragging {
+  opacity: 0.5;
+  background-color: yellowgreen;
+}
+
+.item.dragover {
+  background-color: #11b5e4;
+}
+
+.dragging-pointer {
+  height: 1px;
+  border: 1px dashed gray;
 }
 
 .item-icon {
