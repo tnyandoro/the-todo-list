@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,38 +16,35 @@
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="./style.css">
 </head>
-
 <header>
-  <h3 class="head">The todo List</h3>
+  <h3 class="title">The todo List</h3>
 </header>
-<main>
-  <div class="container hold">
-    <div class="row">
-      <div class="col mx-auto col-md-8 mt-3 text-center">
-        <div class="alert text-capitalize title">
-          Todays Todo List
-        </div>
-        <!-- form -->
-        <form id="itemForm" class="my-3">
-          <div class="input-group">
-            <input type="text" class="form-control text-capitalize" id="itemInput" placeholder="Add to your list...">
-            <div class="input-group-append">
-              <button class="btn btn-grey text-capitalize" type="submit">add</button>
-            </div>
-          </div>
-        </form>
-        <div class="item-container">
-          <!-- end of form  -->
-          <div class="item-list my-5">
-
-          </div>
-          <button type="button" class="btn btn-grey my-3 text-capitalize" id="clear-list">clear all
-            completed</button>
-        </div>
+<div class="container hold">
+  <h3 class="text-center heading">Today todo List</h3>
+  <div class="row">
+    <div class="col mx-auto col-md-8 mt-3 text-center">
+      <div class="alert text-capitalize heading feedback">
+        Todays Todo List
       </div>
+      <!-- form -->
+      <form id="itemForm" class="my-3">
+        <div class="input-group">
+          <input type="text" class="form-control text-capitalize" id="itemInput" placeholder="Add to your list...">
+          <div class="input-group-append">
+            <button id="submitButton" class="btn btn-grey text-capitalize" type="submit">add</button>
+          </div>
+        </div>
+      </form>
+      <!-- end of form  -->
+      <div class="item-list my-5">
+      </div>
+      <button type="button" class="btn btn-grey my-3 text-capitalize" id="clear-list">clear all
+        completed</button>
     </div>
   </div>
-</main>
+</div>
+</div>
 <script src="./index.js"></script>
 </body>
+
 </html>
