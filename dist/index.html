@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,39 +15,37 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="57011448dc08b9372b5e.css">
-<script defer src="main.js"></script></head>
-
+  <script defer src="main.js"></script>
+</head>
 <header>
-  <h3>The todo List</h3>
+  <h3 class="title">The todo List</h3>
 </header>
-<main>
-  <div class="container hold">
-    <div class="row">
-      <div class="col mx-auto col-md-8 mt-3 text-center">
-        <div class="alert text-capitalize title">
-          Todays Todo List
-        </div>
-        <!-- form -->
-        <form id="itemForm" class="my-3">
-          <div class="input-group">
-            <input type="text" class="form-control text-capitalize" id="itemInput" placeholder="Add to your list...">
-            <div class="input-group-append">
-              <button class="btn btn-green text-capitalize" type="submit">add</button>
-            </div>
-          </div>
-        </form>
-        <div class="item-container">
-          <!-- end of form  -->
-          <div class="item-list my-5">
-
-          </div>
-          <button type="button" class="btn btn-green my-3 text-capitalize" id="clear-list">clear all
-            completed</button>
-        </div>
+<div class="container hold">
+  <h3 class="text-center heading">Today todo List</h3>
+  <div class="row">
+    <div class="col mx-auto col-md-8 mt-3 text-center">
+      <div class="alert text-capitalize heading feedback">
+        Todays Todo List
       </div>
+      <!-- form -->
+      <form id="itemForm" class="my-3">
+        <div class="input-group">
+          <input type="text" class="form-control text-capitalize" id="itemInput" placeholder="Add to your list...">
+          <div class="input-group-append">
+            <button id="submitButton" class="btn btn-grey text-capitalize" type="submit">add</button>
+          </div>
+        </div>
+      </form>
+      <!-- end of form  -->
+      <div class="item-list my-5">
+      </div>
+      <button type="button" class="btn btn-grey my-3 text-capitalize" id="clear-list">clear all
+        completed</button>
     </div>
   </div>
-</main>
-<script src="06a231111c5ff5b1e3ed.js"></script>
+</div>
+</div>
+<script src="2c45f7c19f36fac18b91.js"></script>
 </body>
+
 </html>
