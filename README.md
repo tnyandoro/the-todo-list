@@ -4,7 +4,7 @@
 
 > "To-do list" is a tool that helps to organize your day. It simply lists the things that you need to do and allows you to mark them as complete. We have build a simple website that allows for doing that, and we are using ES6 and Webpack!.
 
-![image](https://user-images.githubusercontent.com/30318155/126123840-6b1a2d4b-f9bf-4460-a58b-861e6298a499.png)
+![image](https://user-images.githubusercontent.com/30318155/126446051-a6f9f75d-2e1e-4a4f-8773-fce37c2e18e3.png)
 
 "To-do list" is an app tool that helps to organize your day. It simply lists the things that you need to do and allows you to mark them as complete.
 
@@ -17,7 +17,7 @@
 
 ## Live Demo
 
-[Live Demo Link](https://raw.githack.com/tnyandoro/the-todo-list/feature/structure/dist/index.html)
+[Live Demo Link](https://rawcdn.githack.com/tnyandoro/the-todo-list/d4da10900c0bc35cb9b3542e53b986493d8fcd69/src/index.html)
 
 
 ## Getting Started
