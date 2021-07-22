@@ -17,7 +17,7 @@
 
 ## Live Demo
 
-[Live Demo Link](https://rawcdn.githack.com/tnyandoro/the-todo-list/d4da10900c0bc35cb9b3542e53b986493d8fcd69/src/index.html)
+[Live Demo Link](https://rawcdn.githack.com/tnyandoro/the-todo-list/feature/newinteractive-list/dist/index.html)
 
 
 ## Getting Started
