@@ -17,7 +17,7 @@
 
 ## Live Demo
 
-[Live Demo Link](https://raw.githack.com/tnyandoro/the-todo-list/develop/dist/index.html)
+[Live Demo Link](https://tnyandoro.github.io/the-todo-list/)
 
 
 ## Getting Started
