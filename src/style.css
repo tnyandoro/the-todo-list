@@ -1,0 +1,129 @@
+:root {
+  --mainWhite: #f5f5f5;
+  --mainGrey: #000;
+  --mainBlack: #333;
+  --mainRed: #d62828;
+  --mainBlue: #11b5e4;
+}
+
+body {
+  background: var(--mainWhite);
+  color: #333;
+}
+
+.title {
+  color: #e6efef;
+}
+
+.heading {
+  color: #000;
+  font-size: 18px;
+  padding-top: 30px;
+  font-style: italic;
+}
+
+.hold {
+  border: 1px solid;
+  margin: 0 auto;
+  width: 60%;
+  align-items: center;
+  border-radius: 3px;
+  box-shadow: 5px 10px #333;
+}
+
+.btn-grey {
+  border-color: var(--mainGrey);
+  background: transparent;
+  color: var(--mainGrey);
+}
+
+.btn-grey:hover {
+  background: var(--mainGrey);
+  color: var(--mainBlack);
+}
+
+.form-control {
+  border-color: var(--mainGrey) !important;
+}
+
+.feedback {
+  display: none;
+  color: #000;
+}
+
+.item-name {
+  margin-left: 0;
+  align-content: flex-start;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  cursor: grab;
+  margin: 0;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.item h5 {
+  margin: 0;
+  width: 70%;
+  text-align: left;
+  text-decoration: none;
+}
+
+.item.dragging {
+  opacity: 0.5;
+  background-color: yellowgreen;
+}
+
+.item.dragover {
+  background-color: #11b5e4;
+}
+
+.dragging-pointer {
+  height: 1px;
+  border: 1px dashed gray;
+}
+
+.item-icon {
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.complete-item {
+  color: var(--mainGrey);
+}
+
+.complete-item:hover {
+  color: var(--mainGrey);
+}
+
+.edit-item {
+  color: var(--mainBlue);
+}
+
+.edit-item:hover {
+  color: var(--mainBlue);
+}
+
+.delete-item {
+  color: var(--mainRed);
+}
+
+.delete-item:hover {
+  color: var(--mainRed);
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.visibility {
+  opacity: 0.5;
+}
+
+.showItem {
+  display: block;
+}
