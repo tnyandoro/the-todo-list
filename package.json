@@ -5,6 +5,7 @@
   "private": "true",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "gh-pages -d dist",
     "watch": "webpack --watch",
     "start": "webpack serve --open",
     "build": "webpack",
@@ -17,10 +18,10 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "homepage":" http://tendainyandoro.me/the-todo-list/",
   "bugs": {
     "url": "https://github.com/tnyandoro/the-todo-list/issues"
   },
-  "homepage": "https://github.com/tnyandoro/the-todo-list#readme",
   "devDependencies": {
     "@babel/cli": "^7.14.8",
     "@babel/core": "^7.14.8",
@@ -49,6 +50,7 @@
   "dependencies": {
     "bootstrap": "^5.0.2",
     "express": "^4.17.1",
+    "gh-pages": "^3.2.3",
     "lodash": "^4.17.21",
     "style-loader": "^3.0.0",
     "webpack-dev-middleware": "^5.0.0"
