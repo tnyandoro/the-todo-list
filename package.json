@@ -1,10 +1,13 @@
 {
   "name": "the-todo-list",
+  "jest": {
+    "verbose": true
+  },
   "version": "1.0.0",
   "description": "In this project, we have build a simple HTML list of To Do tasks. The list will be styled according to the specifications listed later in this lesson. This simple web page will be built using webpack and served by a webpack dev server.",
   "private": "true",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --coverage",
     "deploy": "gh-pages -d dist",
     "watch": "webpack --watch",
     "start": "webpack serve --open",
@@ -36,6 +39,7 @@
     "hint": "^6.1.4",
     "html-loader": "^2.1.2",
     "html-webpack-plugin": "^5.3.2",
+    "jest": "^27.0.6",
     "style-loader": "^3.1.0",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^21.0.0",
