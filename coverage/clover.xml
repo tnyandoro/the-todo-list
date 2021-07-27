@@ -1,6 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1627236525608" clover="3.2.0">
-  <project timestamp="1627236525609" name="All files">
-    <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0" elements="0" coveredelements="0" complexity="0" loc="0" ncloc="0" packages="0" files="0" classes="0"/>
+<coverage generated="1627414167600" clover="3.2.0">
+  <project timestamp="1627414167600" name="All files">
+    <metrics statements="27" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="13" coveredmethods="2" elements="42" coveredelements="7" complexity="0" loc="27" ncloc="27" packages="1" files="1" classes="1"/>
+    <file name="ItemRepository.js" path="/mnt/d/Microverse Assignments/Javascript/the-todo-list/src/ItemRepository.js">
+      <metrics statements="27" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="13" coveredmethods="2"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="4" count="1" type="stmt"/>
+      <line num="8" count="0" type="stmt"/>
+      <line num="12" count="1" type="cond" truecount="2" falsecount="0"/>
+      <line num="16" count="0" type="stmt"/>
+      <line num="17" count="0" type="stmt"/>
+      <line num="21" count="0" type="stmt"/>
+      <line num="25" count="0" type="stmt"/>
+      <line num="26" count="0" type="stmt"/>
+      <line num="31" count="0" type="stmt"/>
+      <line num="35" count="0" type="stmt"/>
+      <line num="36" count="0" type="stmt"/>
+      <line num="37" count="0" type="stmt"/>
+      <line num="41" count="0" type="stmt"/>
+      <line num="42" count="0" type="stmt"/>
+      <line num="43" count="0" type="stmt"/>
+      <line num="44" count="0" type="stmt"/>
+      <line num="48" count="0" type="stmt"/>
+      <line num="49" count="0" type="stmt"/>
+      <line num="53" count="0" type="stmt"/>
+      <line num="54" count="0" type="stmt"/>
+      <line num="55" count="0" type="stmt"/>
+      <line num="59" count="0" type="stmt"/>
+      <line num="60" count="0" type="stmt"/>
+      <line num="61" count="0" type="stmt"/>
+      <line num="62" count="0" type="stmt"/>
+      <line num="63" count="0" type="stmt"/>
+    </file>
   </project>
 </coverage>
