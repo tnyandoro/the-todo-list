@@ -23,12 +23,14 @@ export default class ItemRepository {
 
   addItem(itemText) {
     const time = new Date().getTime();
+    const itemId = time.toString();
     this.todoItems.push({
-      id: `${time}`,
+      id: itemId,
       text: itemText,
       completed: false,
     });
     this.storeItems();
+    return itemId;
   }
 
   completeItem(itemId) {
