@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1627414167600" clover="3.2.0">
-  <project timestamp="1627414167600" name="All files">
-    <metrics statements="27" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="13" coveredmethods="2" elements="42" coveredelements="7" complexity="0" loc="27" ncloc="27" packages="1" files="1" classes="1"/>
-    <file name="ItemRepository.js" path="/mnt/d/Microverse Assignments/Javascript/the-todo-list/src/ItemRepository.js">
-      <metrics statements="27" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="13" coveredmethods="2"/>
-      <line num="3" count="1" type="stmt"/>
-      <line num="4" count="1" type="stmt"/>
-      <line num="8" count="0" type="stmt"/>
-      <line num="12" count="1" type="cond" truecount="2" falsecount="0"/>
+<coverage generated="1627471783764" clover="3.2.0">
+  <project timestamp="1627471783764" name="All files">
+    <metrics statements="27" coveredstatements="7" conditionals="2" coveredconditionals="2" methods="13" coveredmethods="4" elements="42" coveredelements="13" complexity="0" loc="27" ncloc="27" packages="1" files="1" classes="1"/>
+    <file name="ItemRepository.js" path="/mnt/c/Users/FOLIO 9470M/Desktop/microverse project/the-todo-list/src/ItemRepository.js">
+      <metrics statements="27" coveredstatements="7" conditionals="2" coveredconditionals="2" methods="13" coveredmethods="4"/>
+      <line num="3" count="2" type="stmt"/>
+      <line num="4" count="2" type="stmt"/>
+      <line num="8" count="1" type="stmt"/>
+      <line num="12" count="2" type="cond" truecount="2" falsecount="0"/>
       <line num="16" count="0" type="stmt"/>
       <line num="17" count="0" type="stmt"/>
       <line num="21" count="0" type="stmt"/>
-      <line num="25" count="0" type="stmt"/>
-      <line num="26" count="0" type="stmt"/>
-      <line num="31" count="0" type="stmt"/>
+      <line num="25" count="1" type="stmt"/>
+      <line num="26" count="1" type="stmt"/>
+      <line num="31" count="1" type="stmt"/>
       <line num="35" count="0" type="stmt"/>
       <line num="36" count="0" type="stmt"/>
       <line num="37" count="0" type="stmt"/>
