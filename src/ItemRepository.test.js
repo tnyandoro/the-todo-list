@@ -16,6 +16,7 @@ describe('ItemRepository', () => {
     expect(itemRepository.todoItems.length).toBe(0);
   });
 });
+
 describe('ItemRepository.addItem', () => {
   it('should return a string ID', () => {
     // arrange
@@ -39,3 +40,4 @@ describe('ItemRepository.addItem', () => {
 
     expect(id2).not.toBe(id1); // make sure different ID is generated
   });
+});
