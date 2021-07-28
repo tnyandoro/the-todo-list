@@ -50,5 +50,14 @@ describe('ItemRepository.addItem', () => {
     expect(typeof itemRepository.todoItems[0]).toBe('object');
     expect(itemRepository.todoItems[0].completed).toBe(false);
     expect(itemRepository.todoItems[0].text).toBe('one');
+
+    // acta again adding another objects
+    itemRepository.addItem('two');
+
+    // assert
+    expect(itemRepository.todoItems.length).toBe(2);
+    expect(typeof itemRepository.todoItems[1]).toBe('object');
+    expect(itemRepository.todoItems[1].completed).toBe(false);
+    expect(itemRepository.todoItems[1].text).toBe('two');
   });
 });
