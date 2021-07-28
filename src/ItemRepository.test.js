@@ -61,3 +61,23 @@ describe('ItemRepository.addItem', () => {
     expect(itemRepository.todoItems[1].text).toBe('two');
   });
 });
+
+describe('ItemRepository.removeCompletedItems', () => {
+  it('should remove completed items', () => {
+    // arrange
+    const itemRepository = new ItemRepository();
+    itemRepository.todoItems = [ {id: 'i1', completed: true}, { id: 'i2', completed: true },
+, { id: 'i3', completed: false },
+, { id: 'i4', completed: false },
+]
+
+itemRepository.removeCompletedItems();
+
+    // assert
+    expect(itemRepository.todoItems.length).toBe(2);
+    expect(itemRepository.todoItems[0].id).toBe('i3');
+    expect(itemRepository.todoItems[1].id).toBe('i4');
+
+  });
+});
+

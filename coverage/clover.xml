@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1627480183260" clover="3.2.0">
-  <project timestamp="1627480183261" name="All files">
-    <metrics statements="29" coveredstatements="9" conditionals="2" coveredconditionals="2" methods="13" coveredmethods="4" elements="44" coveredelements="15" complexity="0" loc="29" ncloc="29" packages="1" files="1" classes="1"/>
-    <file name="ItemRepository.js" path="/mnt/d/Microverse Assignments/Javascript/the-todo-list/src/ItemRepository.js">
-      <metrics statements="29" coveredstatements="9" conditionals="2" coveredconditionals="2" methods="13" coveredmethods="4"/>
-      <line num="3" count="3" type="stmt"/>
-      <line num="4" count="3" type="stmt"/>
-      <line num="8" count="4" type="stmt"/>
-      <line num="12" count="3" type="cond" truecount="2" falsecount="0"/>
+<coverage generated="1627481943443" clover="3.2.0">
+  <project timestamp="1627481943444" name="All files">
+    <metrics statements="29" coveredstatements="11" conditionals="2" coveredconditionals="2" methods="13" coveredmethods="6" elements="44" coveredelements="19" complexity="0" loc="29" ncloc="29" packages="1" files="1" classes="1"/>
+    <file name="ItemRepository.js" path="/mnt/c/Users/FOLIO 9470M/Desktop/microverse project/the-todo-list/src/ItemRepository.js">
+      <metrics statements="29" coveredstatements="11" conditionals="2" coveredconditionals="2" methods="13" coveredmethods="6"/>
+      <line num="3" count="4" type="stmt"/>
+      <line num="4" count="4" type="stmt"/>
+      <line num="8" count="5" type="stmt"/>
+      <line num="12" count="4" type="cond" truecount="2" falsecount="0"/>
       <line num="16" count="0" type="stmt"/>
       <line num="17" count="0" type="stmt"/>
       <line num="21" count="0" type="stmt"/>
@@ -23,8 +23,8 @@
       <line num="44" count="0" type="stmt"/>
       <line num="45" count="0" type="stmt"/>
       <line num="46" count="0" type="stmt"/>
-      <line num="50" count="0" type="stmt"/>
-      <line num="51" count="0" type="stmt"/>
+      <line num="50" count="4" type="stmt"/>
+      <line num="51" count="1" type="stmt"/>
       <line num="55" count="0" type="stmt"/>
       <line num="56" count="0" type="stmt"/>
       <line num="57" count="0" type="stmt"/>
