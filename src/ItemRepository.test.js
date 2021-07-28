@@ -47,7 +47,7 @@ describe('ItemRepository.addItem', () => {
 
     // assert
     expect(itemRepository.todoItems.length).toBe(1);
-    // expect(typeof itemRepository.todoItems[0].toBe('object'));
+    expect(typeof itemRepository.todoItems[0]).toBe('object');
     expect(itemRepository.todoItems[0].completed).toBe(false);
     expect(itemRepository.todoItems[0].text).toBe('one');
   });
