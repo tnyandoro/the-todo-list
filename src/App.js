@@ -1,5 +1,4 @@
 /* eslint-disable no-unused-vars */
-import './style.css';
 import ItemSorter from './ItemSorter.js';
 import ItemRepository from './ItemRepository.js';
 

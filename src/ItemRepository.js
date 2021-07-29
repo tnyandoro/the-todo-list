@@ -51,6 +51,11 @@ export default class ItemRepository {
     this.storeItems();
   }
 
+  removeAllItems() {
+    this.todoItems = [];
+    this.storeItems();
+  }
+
   updateItem(itemId, itemText) {
     const todoItem = this.getItem(itemId);
     todoItem.text = itemText;
