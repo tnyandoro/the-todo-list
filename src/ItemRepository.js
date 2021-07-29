@@ -23,7 +23,8 @@ export default class ItemRepository {
 
   addItem(itemText) {
     const time = new Date().getTime();
-    const itemId = time.toString();
+    const random = Math.floor((Math.random() * 1000) + 1);
+    const itemId = `${time}${random}`;
     this.todoItems.push({
       id: itemId,
       text: itemText,
