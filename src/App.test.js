@@ -82,38 +82,54 @@ describe('ItemRepository.removeItem', () => {
     const items1 = document.querySelectorAll('.item');
     expect(items1.length).toBe(3);
 
-    // act
+    // act (again)
     app.itemRepository.removeItem('i4');
     app.renderItems();
 
-    // assert
+    // assert (again)
     const items2 = document.querySelectorAll('.item');
     expect(items2.length).toBe(2);
   });
 });
 
-describe('ItemRepository.removeItem', () => {
-  it('should remove an item', () => {
+describe('ItemRepository.updateItem', () => {
+  it('should edit and update an item description', () => {
     // arrange
-
     app.itemRepository.todoItems = [
-      { id: 'i1', completed: true },
-      { id: 'i2', completed: true },
-      { id: 'i3', completed: false },
-      { id: 'i4', completed: false },
+      { id: 'i1', text: 'Description1', completed: false },
     ];
     app.renderItems();
+
     // act
-    app.itemRepository.removeItem('i1');
+    app.itemRepository.updateItem('i1', 'DescriptionX');
+    app.renderItems();
 
     // assert
     const items = document.querySelectorAll('.item');
-    expect(items.length).toBe(3);
+    expect(items[0].querySelector('h5').textContent).toBe('DescriptionX');
   });
 });
 
-describe('ItemRepository.updateItem', () => {
-  it('should edit and update an item description', () => {
+describe('ItemRepository.completeItem', () => {
+  it('should return an updated complete status', () => {
+    // arrange
+    app.itemRepository.todoItems = [
+      { id: 'i1', completed: false },
+    ];
+    app.renderItems();
+
+    // act
+    app.itemRepository.completeItem('i1', true);
+    app.renderItems();
+
+    // assert
+    const items = document.querySelectorAll('.item');
+    expect(items[0].querySelector('h5').classList.contains('completed')).toBe(true);
+  });
+});
+
+describe('ItemRepository.moveItem', () => {
+  it('should move an item', () => {
     // arrange
 
     app.itemRepository.todoItems = [
@@ -122,53 +138,14 @@ describe('ItemRepository.updateItem', () => {
       { id: 'i3', text: 'Description3', completed: false },
       { id: 'i4', text: 'Description4', completed: false },
     ];
+    app.renderItems();
 
     // act
-    app.itemRepository.updateItem('i3', 'DescriptionX');
+    app.itemRepository.moveItem('i3', 0);
     app.renderItems();
 
     // assert
     const items = document.querySelectorAll('.item');
-    expect(items[2].text).toBe('DescriptionX');
-  });
-});
-
-describe('ItemRepository.completeItem', () => {
-  it('should return an updated complete status', () => {
-    // arrange
-
-    app.itemRepository.todoItems = [
-      { id: 'i1', completed: false },
-      { id: 'i2', completed: false },
-      { id: 'i3', completed: false },
-      { id: 'i4', completed: false },
-    ];
-    app.renderItems();
-    // act
-    app.itemRepository.completeItem('i3');
-    app.renderItems();
-
-    // assert
-    const items = document.querySelectorAll('.item');
-    expect(items[2].completed).toBe(true);
-  });
-});
-
-describe('ItemRepository.moveItem', () => {
-  it('should move an item', () => {
-    // arrange
-    const itemRepository = new ItemRepository();
-    itemRepository.todoItems = [
-      { id: 'i1', completed: false },
-      { id: 'i2', completed: false },
-      { id: 'i3', completed: false },
-      { id: 'i4', completed: false },
-    ];
-
-    // act
-    itemRepository.moveItem('i3', 0);
-
-    // assert
-    expect(itemRepository.todoItems[0].id).toBe('i3');
+    expect(items[0].querySelector('h5').textContent).toBe('Description3');
   });
 });
