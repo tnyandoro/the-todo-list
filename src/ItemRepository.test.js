@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import 'jest-localstorage-mock';
 import ItemRepository from './ItemRepository.js';
 
@@ -51,10 +55,10 @@ describe('ItemRepository.addItem', () => {
     expect(itemRepository.todoItems[0].completed).toBe(false);
     expect(itemRepository.todoItems[0].text).toBe('one');
 
-    // acta again adding another objects
+    // act (again)
     itemRepository.addItem('two');
 
-    // assert
+    // assert (again)
     expect(itemRepository.todoItems.length).toBe(2);
     expect(typeof itemRepository.todoItems[1]).toBe('object');
     expect(itemRepository.todoItems[1].completed).toBe(false);
@@ -66,18 +70,20 @@ describe('ItemRepository.removeCompletedItems', () => {
   it('should remove completed items', () => {
     // arrange
     const itemRepository = new ItemRepository();
-    itemRepository.todoItems = [ {id: 'i1', completed: true}, { id: 'i2', completed: true },
-, { id: 'i3', completed: false },
-, { id: 'i4', completed: false },
-]
+    itemRepository.todoItems = [
+      { id: 'i1', completed: true },
+      { id: 'i2', completed: true },
+      { id: 'i3', completed: false },
+      { id: 'i4', completed: false },
+    ];
 
-itemRepository.removeCompletedItems();
+    // act
+    itemRepository.removeCompletedItems();
 
     // assert
     expect(itemRepository.todoItems.length).toBe(2);
     expect(itemRepository.todoItems[0].id).toBe('i3');
     expect(itemRepository.todoItems[1].id).toBe('i4');
-
   });
 });
 
@@ -85,19 +91,20 @@ describe('ItemRepository.removeItem', () => {
   it('should remove an item', () => {
     // arrange
     const itemRepository = new ItemRepository();
-    itemRepository.todoItems = [ {id: 'i1', completed: true}, { id: 'i2', completed: true },
-, { id: 'i3', completed: false },
-, { id: 'i4', completed: false },
-]
+    itemRepository.todoItems = [
+      { id: 'i1', completed: true },
+      { id: 'i2', completed: true },
+      { id: 'i3', completed: false },
+      { id: 'i4', completed: false },
+    ];
 
-itemRepository.removeItem('i1');
+    // act
+    itemRepository.removeItem('i1');
 
     // assert
     expect(itemRepository.todoItems.length).toBe(3);
     expect(itemRepository.todoItems[0].id).toBe('i2');
     expect(itemRepository.todoItems[1].id).toBe('i3');
     expect(itemRepository.todoItems[2].id).toBe('i4');
-
   });
 });
-

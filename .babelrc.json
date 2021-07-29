@@ -1,3 +1,11 @@
+// {
+//   "presets": ["@babel/preset-env"],
+//   "plugins": ["ignore-html-and-css-imports"]
+// }
 {
-  "presets": ["@babel/preset-env"]
+  "env": {
+    "test": {
+      "plugins": ["@babel/plugin-transform-modules-commonjs"]
+    }
+  }
 }
