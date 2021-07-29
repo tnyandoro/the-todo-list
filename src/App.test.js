@@ -95,30 +95,28 @@ describe('ItemRepository.removeItem', () => {
 describe('ItemRepository.removeItem', () => {
   it('should remove an item', () => {
     // arrange
-    const itemRepository = new ItemRepository();
-    itemRepository.todoItems = [
+
+    app.itemRepository.todoItems = [
       { id: 'i1', completed: true },
       { id: 'i2', completed: true },
       { id: 'i3', completed: false },
       { id: 'i4', completed: false },
     ];
-
+    app.renderItems();
     // act
-    itemRepository.removeItem('i1');
+    app.itemRepository.removeItem('i1');
 
     // assert
-    expect(itemRepository.todoItems.length).toBe(3);
-    expect(itemRepository.todoItems[0].id).toBe('i2');
-    expect(itemRepository.todoItems[1].id).toBe('i3');
-    expect(itemRepository.todoItems[2].id).toBe('i4');
+    const items = document.querySelectorAll('.item');
+    expect(items.length).toBe(3);
   });
 });
 
 describe('ItemRepository.updateItem', () => {
   it('should edit and update an item description', () => {
     // arrange
-    const itemRepository = new ItemRepository();
-    itemRepository.todoItems = [
+
+    app.itemRepository.todoItems = [
       { id: 'i1', text: 'Description1', completed: true },
       { id: 'i2', text: 'Description2', completed: true },
       { id: 'i3', text: 'Description3', completed: false },
@@ -126,29 +124,33 @@ describe('ItemRepository.updateItem', () => {
     ];
 
     // act
-    itemRepository.updateItem('i3', 'DescriptionX');
+    app.itemRepository.updateItem('i3', 'DescriptionX');
+    app.renderItems();
 
     // assert
-    expect(itemRepository.todoItems[2].text).toBe('DescriptionX');
+    const items = document.querySelectorAll('.item');
+    expect(items[2].text).toBe('DescriptionX');
   });
 });
 
 describe('ItemRepository.completeItem', () => {
   it('should return an updated complete status', () => {
     // arrange
-    const itemRepository = new ItemRepository();
-    itemRepository.todoItems = [
+
+    app.itemRepository.todoItems = [
       { id: 'i1', completed: false },
       { id: 'i2', completed: false },
       { id: 'i3', completed: false },
       { id: 'i4', completed: false },
     ];
-
+    app.renderItems();
     // act
-    itemRepository.completeItem('i3');
+    app.itemRepository.completeItem('i3');
+    app.renderItems();
 
     // assert
-    expect(itemRepository.todoItems[2].completed).toBe(true);
+    const items = document.querySelectorAll('.item');
+    expect(items[2].completed).toBe(true);
   });
 });
 
