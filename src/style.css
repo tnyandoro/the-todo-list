@@ -1,13 +1,5 @@
-:root {
-  --mainWhite: #f5f5f5;
-  --mainGrey: #000;
-  --mainBlack: #333;
-  --mainRed: #d62828;
-  --mainBlue: #11b5e4;
-}
-
 body {
-  background: var(--mainWhite);
+  background: #f5f5f5;
   color: #333;
 }
 
@@ -32,18 +24,18 @@ body {
 }
 
 .btn-grey {
-  border-color: var(--mainGrey);
+  border-color: #000;
   background: transparent;
-  color: var(--mainGrey);
+  color: #000;
 }
 
 .btn-grey:hover {
-  background: var(--mainGrey);
-  color: var(--mainBlack);
+  background: #000;
+  color: #333;
 }
 
 .form-control {
-  border-color: var(--mainGrey) !important;
+  border-color: #000 !important;
 }
 
 .feedback {
@@ -92,27 +84,27 @@ body {
 }
 
 .complete-item {
-  color: var(--mainGrey);
+  color: #000;
 }
 
 .complete-item:hover {
-  color: var(--mainGrey);
+  color: #000;
 }
 
 .edit-item {
-  color: var(--mainBlue);
+  color: #11b5e4;
 }
 
 .edit-item:hover {
-  color: var(--mainBlue);
+  color: #11b5e4;
 }
 
 .delete-item {
-  color: var(--mainRed);
+  color: #d62828;
 }
 
 .delete-item:hover {
-  color: var(--mainRed);
+  color: #d62828;
 }
 
 .completed {

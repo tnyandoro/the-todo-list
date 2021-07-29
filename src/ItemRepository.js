@@ -23,12 +23,15 @@ export default class ItemRepository {
 
   addItem(itemText) {
     const time = new Date().getTime();
+    const random = Math.floor((Math.random() * 1000) + 1);
+    const itemId = `${time}${random}`;
     this.todoItems.push({
-      id: `${time}`,
+      id: itemId,
       text: itemText,
       completed: false,
     });
     this.storeItems();
+    return itemId;
   }
 
   completeItem(itemId) {
@@ -46,6 +49,11 @@ export default class ItemRepository {
 
   removeCompletedItems() {
     this.todoItems = this.todoItems.filter((tdi) => !tdi.completed);
+    this.storeItems();
+  }
+
+  removeAllItems() {
+    this.todoItems = [];
     this.storeItems();
   }
 
