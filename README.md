@@ -14,6 +14,8 @@
 - HTML
 - CSS
 - Vanilla JavaScript
+- Jest
+- Babel
 
 ## Live Demo
 
