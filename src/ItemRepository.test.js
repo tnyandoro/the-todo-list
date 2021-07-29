@@ -110,3 +110,26 @@ describe('ItemRepository.removeItem', () => {
     expect(itemRepository.todoItems[2].id).toBe('i4');
   });
 });
+
+describe('ItemRepository.updateItem', () => {
+  it('should edit and update an item', () => {
+    // arrange
+    const itemRepository = new ItemRepository();
+    itemRepository.todoItems = [
+      { id: 'i1', text: 'Description1', completed: true },
+      { id: 'i2', text: 'Description2', completed: true },
+      { id: 'i3', text: 'Description3', completed: false },
+      { id: 'i4', text: 'Description4', completed: false },
+    ];
+
+    // act
+    itemRepository.updateItem('Description1');
+
+    // assert
+    expect(itemRepository.todoItems.length).toBe(4);
+    expect(itemRepository.todoItems[0].id).toBe('Description5');
+    expect(itemRepository.todoItems[1].id).toBe('Description2');
+    expect(itemRepository.todoItems[2].id).toBe('Description3');
+    expect(itemRepository.todoItems[3].id).toBe('Description4');
+  });
+});
