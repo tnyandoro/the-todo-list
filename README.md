@@ -60,6 +60,7 @@ npm start
 - Twitter: [@tendainyandoro](https://twitter.com/tendainyandoro)
 - LinkedIn: [Tendai Nyandoro](https://www.linkedin.com/in/tendai-nyandoro/)
 
+
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!
