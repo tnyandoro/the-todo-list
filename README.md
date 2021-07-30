@@ -25,9 +25,9 @@
 ## Getting Started
 
 ** This is how you mayset up the project locally.**
-** Clone the 
-git clone https://github.com/tnyandoro/the-todo-list.git 
-cd into 'the todo list' 
+** Clone the project
+git clone https://github.com/tnyandoro/the-todo-list.git
+cd into 'the todo list'
 
 
 
@@ -59,6 +59,12 @@ npm start
 - GitHub: [@Tendai Nyandoro](https://github.com/tnyandoro)
 - Twitter: [@tendainyandoro](https://twitter.com/tendainyandoro)
 - LinkedIn: [Tendai Nyandoro](https://www.linkedin.com/in/tendai-nyandoro/)
+
+
+👤 **Shonibare Adewunmi Comfort**
+
+- Github: [@Adewunmi97](https://github.com/Adewunmi97)
+- Twitter: [@_ShonibareC](https://twitter.com/_ShonibareC)
 
 
 ## 🤝 Contributing
